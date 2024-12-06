@@ -28,8 +28,6 @@ class Agenda:
       return True # Aviso solo es para continuar con otros metodos por el momento
   
   def toFile(self):
-    url = "https://github.com/1StAndres/Est.Datos/blob/main/agenda.txt" 
-    response = requests.get(url)
     with open("agenda.txt", "w") as f:
         for usuario in self._registro:
             if usuario is not None:
