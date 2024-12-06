@@ -25,10 +25,19 @@ class Agenda:
     if eliminar_user == -1:
       return False
     else:
-      return True # Aviso solo es para continuar con otros metodos por el momento
+      self._registro.pop(eliminar_user)
+      self._registro.append(None)
+      self._no_reg -= 1
+      return True
   
   def toFile(self):
     with open("agenda.txt", "w") as f:
-        for usuario in self._registro:
-            if usuario is not None:
-              f.write(usuario.__str__()) 
+      for usuario in self._registro:
+        if usuario is not None:
+          f.write(usuario.__str__()) # falta verificar el metodo (.__str__()) para que coincida como lo necesitemos escribir en el archivo
+
+  def importF(self): # en trabajo
+    with open("agenda.txt", "r") as f:
+      for line in f:
+        data = line.strip().split()
+
