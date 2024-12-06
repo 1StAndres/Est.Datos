@@ -33,4 +33,4 @@ class Agenda:
     with open("agenda.txt", "w") as f:
         for usuario in self._registro:
             if usuario is not None:
-              f.write(usuario.)
+              f.write(usuario.__str__()) 
