@@ -1,4 +1,3 @@
-from Usuario import Usuario
 import requests
 class Agenda:
   def __init__(self, capacity):
@@ -6,9 +5,9 @@ class Agenda:
     self.capaity = capacity
     self._no_reg = 0 
   
-  def agregar(self, Usuario):
+  def agregar(self, usuario):
     if self._no_reg < self.capacity:
-        self._registro[self._no_reg] = Usuario
+        self._registro[self._no_reg] = usuario
         self._no_reg += 1
         return True
     else:
@@ -32,4 +31,6 @@ class Agenda:
     url = "https://github.com/1StAndres/Est.Datos/blob/main/agenda.txt" 
     response = requests.get(url)
     with open("agenda.txt", "w") as f:
-            f.write(self._registro)
+        for usuario in self._registro:
+            if usuario is not None:
+              f.write(usuario.)
