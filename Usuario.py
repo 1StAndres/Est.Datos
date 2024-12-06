@@ -1,5 +1,6 @@
 from Fecha import Fecha
 from Direccion import Direccion
+
 class Usuario:
   def __init__(self, nombre = None, id = None):
     self._nombre = nombre
