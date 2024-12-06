@@ -1,9 +1,19 @@
+from Usuario import Usuario
 import requests
-
 class Agenda:
-  def __init__(self, capacity=int):#capacity = capacidad max de almacenamiento de usuarios
-    self._registro = [1]
-    self._no_reg = int = 0 #numero de usuarios ingresados
+  def __init__(self, capacity):
+    self._registro = [None] * capacity
+    self.capaity = capacity
+    self._no_reg = 0 
+  
+  def agregar(self, Usuario):
+    if self._no_reg < self.capacity:
+        self._registro[self._no_reg] = Usuario
+        self._no_reg += 1
+        return True
+    else:
+        print("La agenda está llena.")
+        return False
 
   def buscar(self, id):
     for i in range(self._no_reg):
@@ -23,4 +33,3 @@ class Agenda:
     response = requests.get(url)
     with open("agenda.txt", "w") as f:
             f.write(self._registro)
-toFile()
