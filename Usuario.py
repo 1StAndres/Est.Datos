@@ -27,7 +27,7 @@ class Usuario:
   def setDir(self, dir):
     self._dir = dir
 
-  def serAll(self, n, id, fecha_nacimiento, ciudad_nacimiento, tel, email, dir):
+  def setAll(self, n, id, fecha_nacimiento, ciudad_nacimiento, tel, email, dir):
     self.n = n
     self.id = id
     self.fecha_nacimiento = fecha_nacimiento
@@ -55,4 +55,5 @@ class Usuario:
 
   def __str__(self):
     fecha_nacimiento_str = str(self._fecha_nacimiento.getDia()) + " " + str(self._fecha_nacimiento.getMes()) + " " + str(self._fecha_nacimiento.getA())
-    return self._nombre + " " + self._id + " " + fecha_nacimiento_str + " " +  self._ciudad_nacimiento + " " +  self._tel + " " + self._email + " " +  str(self._dir)
+    return self._nombre + " " + self._id + " " + fecha_nacimiento_str + " " +  self._ciudad_nacimiento + " " +  self._tel + " " + self._email + " " +  str(self._dir) + "\n"
+  #garanticemos el salto de línea solicitado

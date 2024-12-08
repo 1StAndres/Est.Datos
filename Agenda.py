@@ -5,11 +5,12 @@ class Agenda:
     self.capaity = capacity
     self._no_reg = 0 
   
-  def agregar(self, usuario):
+  def agregar(self, u):
     if self._no_reg < self.capacity:
-        if  self.buscar(usuario.getId()) == -1:  #si hay algún error con agregar puede ser por esta línea que verifica si el usuario ya está en la agenda
-            self._registro[self._no_reg] = usuario
+        if  self.buscar(u.getId()) == -1:  #si hay algún error con agregar puede ser por esta línea que verifica si el usuario ya está en la agenda
+            self._registro[self._no_reg] = u
             self._no_reg += 1
+            print("El usuario nuevo se agregó correctamente")
             return True
         else:
           print("No es posible agregar nuevamente el usuario")
@@ -21,7 +22,7 @@ class Agenda:
   def buscar(self, id):
     for i in range(self._no_reg):
       if self._registro[i].getId() == id:
-        return self._registro[i].getId()
+        return i
     return -1
   
   def eliminar(self, id):
@@ -38,9 +39,7 @@ class Agenda:
     with open("agenda.txt", "w") as f:
       for usuario in self._registro:
         if usuario is not None:
-          f.write(usuario.__str__()) # falta verificar el metodo (.__str__()) para que coincida como lo necesitemos escribir en el archivo)
-          # ejm: (nombre id fechadia fechames fechaaño ciudad telefono email direccioncalle direccionnomenclatura direccionbarrio direccionciudad direccionedificio direccionapto)
-          #todo separado solo con espacios sin - ni nada para que coincida con el ejempl_agenda que puso la profe
+          f.write(usuario.__str__())
 
   def importF(self):
     with open("agenda_ejemplo.txt", "r") as f:
