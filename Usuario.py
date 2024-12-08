@@ -26,6 +26,15 @@ class Usuario:
   def setDir(self, dir):
     self._dir = dir
 
+  def serAll(self, n, id, fecha_nacimiento, ciudad_nacimiento, tel, email, dir):
+    self.n = n
+    self.id = id
+    self.fecha_nacimiento = fecha_nacimiento
+    self.ciudad_nacimiento = ciudad_nacimiento
+    self.tel = tel
+    self.email = email
+    self.dir = dir
+
   def getNombre(self):
     return self._nombre
   def getId(self):
