@@ -45,4 +45,4 @@ class Direccion:
 
   #Retorno direccion
   def __str__(self):
-    return self._calle + ' No. ' + self._nomenclatura + ' Barrio ' + self._barrio + " " + self._ciudad +  " " + self._edificio +  " " + self._apto
+    return self._calle + " " + self._nomenclatura + " " + self._barrio + " " + self._ciudad +  " " + self._edificio +  " " + self._apto

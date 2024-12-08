@@ -7,9 +7,13 @@ class Agenda:
   
   def agregar(self, usuario):
     if self._no_reg < self.capacity:
-        self._registro[self._no_reg] = usuario
-        self._no_reg += 1
-        return True
+        if  self.buscar(usuario.getId()) == -1:  #si hay algún error con agregar puede ser por esta línea que verifica si el usuario ya está en la agenda
+            self._registro[self._no_reg] = usuario
+            self._no_reg += 1
+            return True
+        else:
+          print("No es posible agregar nuevamente el usuario")
+          return False
     else:
         print("La agenda está llena.")
         return False

@@ -2,14 +2,15 @@ from Fecha import Fecha
 from Direccion import Direccion
 
 class Usuario:
-  def __init__(self, nombre = None, id = None):
+  def __init__(self, nombre = "None", id = "None"): 
     self._nombre = nombre
     self._id = id
-    self._fecha_nacimiento = None
-    self._ciudad_nacimiento = None
-    self._tel = 0
-    self._email = None
-    self._dir = None
+    self._fecha_nacimiento = "None"
+    self._ciudad_nacimiento = "None"
+    self._tel = "None"
+    self._email = "None"
+    self._dir = "None"
+#si hay algún problema con la clase usuario puede ser porque cambié None por "None"
 
   def setNombre(self, nombre):
     self._nombre = nombre
@@ -53,5 +54,5 @@ class Usuario:
     return
 
   def __str__(self):
-    fecha_nacimiento_str = str(self._fecha_nacimiento.getDia()) + "-" + str(self._fecha_nacimiento.getMes()) + "-" + str(self._fecha_nacimiento.getA())
+    fecha_nacimiento_str = str(self._fecha_nacimiento.getDia()) + " " + str(self._fecha_nacimiento.getMes()) + " " + str(self._fecha_nacimiento.getA())
     return self._nombre + " " + self._id + " " + fecha_nacimiento_str + " " +  self._ciudad_nacimiento + " " +  self._tel + " " + self._email + " " +  str(self._dir)
