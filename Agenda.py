@@ -37,7 +37,7 @@ class Agenda:
           f.write(usuario.__str__()) # falta verificar el metodo (.__str__()) para que coincida como lo necesitemos escribir en el archivo
 
   def importF(self): # en trabajo
-    with open("agenda.txt", "r") as f:
+    with open("agenda_ejemplo.txt", "r") as f:
       for line in f:
         data = line.strip().split()
 
