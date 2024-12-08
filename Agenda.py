@@ -34,10 +34,18 @@ class Agenda:
     with open("agenda.txt", "w") as f:
       for usuario in self._registro:
         if usuario is not None:
-          f.write(usuario.__str__()) # falta verificar el metodo (.__str__()) para que coincida como lo necesitemos escribir en el archivo
+          f.write(usuario.__str__()) # falta verificar el metodo (.__str__()) para que coincida como lo necesitemos escribir en el archivo)
+          # ejm: (nombre id fechadia fechames fechaaño ciudad telefono email direccioncalle direccionnomenclatura direccionbarrio direccionciudad direccionedificio direccionapto)
+          #todo separado solo con espacios sin - ni nada para que coincida con el ejempl_agenda que puso la profe
 
-  def importF(self): # en trabajo
+  def importF(self):
     with open("agenda_ejemplo.txt", "r") as f:
-      for line in f:
-        data = line.strip().split()
+      for linea in f:
+        datos = linea.strip().split()
+        direccion = Direccion()
+        direccion.setAll(datos[8], datos[9], datos[10], datos[11], datos[12], datos[13])
+        fecha = Fecha(int(datos[2]), int(datos[3]), int(datos[4]))
+        usuario = Usuario(datos[0], int(datos[1]))
+        usuario.setAll(datos[0], int(datos[1]), fecha, datos[5], datos[6], datos[7], direccion)
+        self.agregar(usuario)
 
