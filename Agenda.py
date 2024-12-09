@@ -2,7 +2,7 @@ import requests
 class Agenda:
   def __init__(self, capacity):
     self._registro = [None] * capacity
-    self.capaity = capacity
+    self.capacity = capacity
     self._no_reg = 0 
   
   def agregar(self, u):
