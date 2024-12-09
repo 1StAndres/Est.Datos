@@ -1,4 +1,5 @@
-#en algun momento del semetre tenia esto avanzado asi que lo monto pero esto es para el lab 4
+from Node import Node 
+
 class ListS:
   def __init__(self):
     self.head = None
@@ -54,3 +55,18 @@ class ListS:
       self.tail = None
     self.size -= 1
     return infoEliminada
+  
+  def removeLast(self):
+    if self.is_empty():
+      return None
+    if self.size == 1:
+      return self.removeFisrt()
+    else:
+      nuevaCola = self.last.get_data()
+      Anterior = self.head()
+      while (Anterior != self.tail):
+        Anterior = Anterior.get_next()
+    Anterior.set_next() == None
+    nuevaCola = Anterior
+    self.size -= 1
+    return nuevaCola.get_data()
