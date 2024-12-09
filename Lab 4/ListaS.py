@@ -65,12 +65,11 @@ class ListS:
     if self.size == 1:
       return self.removeFisrt()
     
-    temp = self.last
     Anterior = self.head
     while (Anterior.get_next() != self.tail):
         Anterior = Anterior.get_next()
-
+    temp = self.tail.get_data()
     Anterior.set_next(None)
     self.tail = Anterior
     self.size -= 1
-    return Anterior.get_data()
+    return temp
