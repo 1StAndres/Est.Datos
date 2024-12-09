@@ -1,4 +1,6 @@
-import requests
+from Usuario import Usuario
+from Fecha import Fecha
+from Direccion import Direccion
 class Agenda:
   def __init__(self, capacity):
     self._registro = [None] * capacity
