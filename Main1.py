@@ -80,6 +80,6 @@ print(user5)
 #agregar usuario
 agenda.agregar(user5)
 
-agenda.buscar("1075689")#id de Pedro-Gomez retorna en numero donde esta ubicado en el arreglo
+print('la posicion del usuario es:', agenda.buscar("1075689"))#id de Pedro-Gomez retorna en numero donde esta ubicado en el arreglo
 
 agenda.toFile()
