@@ -1,5 +1,6 @@
 from Node import Node 
 
+
 class ListS:
   def __init__(self):
     self.head = None
@@ -39,8 +40,9 @@ class ListS:
       self.tail = nuev_nodo
     
     else:
-      self.tail = nuev_nodo
       self.tail.set_next(nuev_nodo)
+      self.tail = nuev_nodo
+      
       
     self.size += 1
   
@@ -63,12 +65,12 @@ class ListS:
     if self.size == 1:
       return self.removeFisrt()
     
-    nuevaCola = self.last
+    temp = self.last
     Anterior = self.head
-    while (Anterior != self.tail):
+    while (Anterior.get_next() != self.tail):
         Anterior = Anterior.get_next()
 
-    Anterior.set_next() == None
-    nuevaCola = Anterior
+    Anterior.set_next(None)
+    self.tail = Anterior
     self.size -= 1
-    return nuevaCola.get_data()
+    return Anterior.get_data()
