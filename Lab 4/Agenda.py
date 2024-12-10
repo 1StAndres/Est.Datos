@@ -44,7 +44,7 @@ class Agenda:
           f.write(usuario.__str__())
 
   def importF(self):
-    with open("agenda_ejemplo.txt", "r") as f:
+    with open("ejemplo_agenda.txt", "r") as f:
       for linea in f:
         datos = linea.strip().split()
         direccion = Direccion()
