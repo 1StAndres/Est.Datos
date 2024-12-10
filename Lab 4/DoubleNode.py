@@ -1,9 +1,8 @@
 class DoubleNode:
     def __init__(self, d = None):
-        self._data = None
+        self._data = d
         self._next = None
         self._prev = None
-
 
     def getData(self):
         return self._data

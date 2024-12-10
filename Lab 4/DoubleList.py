@@ -1,4 +1,4 @@
-import DoubleNode
+from DoubleNode import DoubleNode
 class DoubleList:
     def __init__(self):
         self._head = None
@@ -37,10 +37,9 @@ class DoubleList:
                 self._tail = n
 
             else:
-                n.setPrev(self._tail)
                 self._tail.setNext(n)
+                n.setPrev(self._tail)
                 self._tail = n
-                
             self._size +=1
     
     def removeFirst(self):
