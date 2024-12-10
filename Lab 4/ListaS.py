@@ -73,3 +73,13 @@ class ListS:
     self.tail = Anterior
     self.size -= 1
     return temp
+  
+  def print_list(self):
+    if self.is_empty():
+        print("La lista está vacía.")
+        return
+
+    datoNode = self.head
+    while datoNode is not None:
+        print(datoNode.get_data(), end=" ")
+        datoNode = datoNode.get_next()
