@@ -22,22 +22,26 @@ class DoubleList:
         if self.isEmpty():
             self._head = n
             self._tail = n
+
         else:
             n.setNext(self._head)
             self._head.setPrev(n)
             self._head = n
-            self._size += 1
+
+        self._size += 1    
 
     def addLast(self, e):
             n = DoubleNode(e)
             if self.isEmpty():
                 self._head = n
                 self._tail = n
+
             else:
                 n.setPrev(self._tail)
                 self._tail.setNext(n)
                 self._tail = n
-                self._size +=1
+                
+            self._size +=1
     
     def removeFirst(self):
         if not self.isEmpty():
@@ -46,6 +50,7 @@ class DoubleList:
             temp.setNext(None)
             self._size -= 1
             return temp.getData()
+        
         else:
             return None
     
@@ -56,6 +61,7 @@ class DoubleList:
             temp.setNext(None)
             self._size -= 1
             return temp.getData()
+        
         else:
             return None
         
