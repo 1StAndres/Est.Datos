@@ -1,5 +1,5 @@
 class Fecha:
-  def __init__(self, dd=None, mm=None, aa=None):
+  def __init__(self, dd="None", mm="None", aa="None"):
     self._dd = dd
     self._mm = mm
     self._aa = aa
