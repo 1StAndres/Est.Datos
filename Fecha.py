@@ -11,9 +11,17 @@ class Fecha:
   def setA(self, aa):
     self._aa = aa
 
+  def setAllFecha(self,dd,mm,aa):
+    self._dd = dd
+    self._mm = mm
+    self._aa = aa
+
   def getDia(self):
     return self._dd
   def getMes(self):
     return self._mm
   def getA(self):
     return self._aa
+  
+  def __str__(self):
+    return str(self._fecha_nacimiento.getDia()) + " " + str(self._fecha_nacimiento.getMes()) + " " + str(self._fecha_nacimiento.getA())

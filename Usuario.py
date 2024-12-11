@@ -53,5 +53,4 @@ class Usuario:
     return
 
   def __str__(self):
-    fecha_nacimiento_str = str(self._fecha_nacimiento.getDia()) + " " + str(self._fecha_nacimiento.getMes()) + " " + str(self._fecha_nacimiento.getA())
-    return self._nombre + " " + self._id + " " + fecha_nacimiento_str + " " +  self._ciudad_nacimiento + " " +  self._tel + " " + self._email + " " +  str(self._dir) + "\n"
+    return self._nombre + " " + str(self._id) + " " + str(self._fecha_nacimiento) + " " +  self._ciudad_nacimiento + " " +  str(self._tel) + " " + self._email + " " +  str(self._dir) + "\n"
