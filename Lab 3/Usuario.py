@@ -10,7 +10,6 @@ class Usuario:
     self._tel = "None"
     self._email = "None"
     self._dir = "None"
-#si hay algún problema con la clase usuario puede ser porque cambié None por "None"
 
   def setNombre(self, nombre):
     self._nombre = nombre
@@ -56,4 +55,3 @@ class Usuario:
   def __str__(self):
     fecha_nacimiento_str = str(self._fecha_nacimiento.getDia()) + " " + str(self._fecha_nacimiento.getMes()) + " " + str(self._fecha_nacimiento.getA())
     return self._nombre + " " + self._id + " " + fecha_nacimiento_str + " " +  self._ciudad_nacimiento + " " +  self._tel + " " + self._email + " " +  str(self._dir) + "\n"
-  #garanticemos el salto de línea solicitado
