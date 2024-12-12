@@ -22,7 +22,7 @@ new.inicializar()
 new.mostrar()
 new.ordenar_mergeSort()
 new.mostrar()
-
+##BusquedaBinaria
 busqueda = new.busqueda_binaria(int(input("Introduzca el número que desea buscar: ")))
 if busqueda == -1:
     print("El elemento no se encontró en el arreglo")

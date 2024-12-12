@@ -24,4 +24,4 @@ class Fecha:
     return self._aa
   
   def __str__(self):
-    return str(self._fecha_nacimiento.getDia()) + " " + str(self._fecha_nacimiento.getMes()) + " " + str(self._fecha_nacimiento.getA())
+    return str(self.getDia()) + " " + str(self.getMes()) + " " + str(self.getA())
