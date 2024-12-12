@@ -54,4 +54,4 @@ class Usuario:
 
   def __str__(self):
     
-    return self._nombre + " " + self._id + " " + str(self._fecha_nacimiento) + " " +  self._ciudad_nacimiento + " " +  self._tel + " " + self._email + " " +  str(self._dir) + "\n"
+    return self._nombre + " " + str(self._id) + " " + str(self._fecha_nacimiento) + " " +  self._ciudad_nacimiento + " " +  str(self._tel) + " " + self._email + " " +  str(self._dir) + "\n"
