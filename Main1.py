@@ -63,10 +63,11 @@ user4.setDir(direccion_user4)
 print(user4)
 
 #agregar usuario
-agenda.agregar(user4)
+#agenda.agregar(user4)
 
 #usuario 5
 user5 = Usuario("Tatiana-Ramirez", "2345934" )
+user6 = Usuario("zz","2345934")
 fecha_user5 = Fecha("15", "11", "1982")
 user5.setFecha_nacimiento(fecha_user5)
 user5.setCiudad_nacimiento("Medellin")
@@ -79,7 +80,17 @@ print(user5)
 
 #agregar usuario
 agenda.agregar(user5)
+agenda.agregar(user6)
 
 print('la posicion del usuario es:', agenda.buscar("1075689"))#id de Pedro-Gomez retorna en numero donde esta ubicado en el arreglo
 
+
+for i in range(5):
+    print(str(agenda._registro[i]))
+
+agenda.eliminar("2345934")
+print('despues de eliminar\n')
+for i in range(5):
+    print(str(agenda._registro[i]))
 agenda.toFile()
+

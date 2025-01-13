@@ -27,13 +27,13 @@ class Usuario:
     self._dir = dir
 
   def setAll(self, n, id, fecha_nacimiento, ciudad_nacimiento, tel, email, dir):
-    self.n = n
-    self.id = id
-    self.fecha_nacimiento = fecha_nacimiento
-    self.ciudad_nacimiento = ciudad_nacimiento
-    self.tel = tel
-    self.email = email
-    self.dir = dir
+    self._nombre = n
+    self._id = id
+    self._fecha_nacimiento = fecha_nacimiento
+    self._ciudad_nacimiento = ciudad_nacimiento
+    self._tel = tel
+    self._email = email
+    self._dir = dir
 
   def getNombre(self):
     return self._nombre

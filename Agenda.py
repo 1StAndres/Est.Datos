@@ -53,3 +53,8 @@ class Agenda:
         usuario = Usuario(datos[0], int(datos[1]))
         usuario.setAll(datos[0], int(datos[1]), fecha, datos[5], datos[6], datos[7], direccion)
         self.agregar(usuario)
+
+  def getRegistro(self):
+    return self._registro  
+  
+  

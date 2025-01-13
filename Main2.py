@@ -6,7 +6,8 @@ agenda1.importF()
 
 # parte b
 for i in range(5):
-    print(agenda1._registro[i].__str__())
+    print(str(agenda1.getRegistro()[i]))
+    
 
 # parte c
 id = input("ingrese el id: ")

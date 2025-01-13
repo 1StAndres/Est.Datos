@@ -78,6 +78,14 @@ def Insertar(posicion, DoubleList, Dato):
 
 Insertar(3,coleccion_usuarios, pedirUsuario())
 
+print(coleccion_usuarios.first().getData())
+temp = coleccion_usuarios.first()
+k = coleccion_usuarios.size()
+
+for l in range(k-1):
+        print(temp.getNext().getData())
+        temp = temp.getNext()
+
 
 
 
