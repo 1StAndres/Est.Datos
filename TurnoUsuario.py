@@ -13,7 +13,7 @@ class TurnoUsuario :
         self.registro.enqueue(user)
 
     def atenderSiguiente(self):
-        User_atendido = self.registro.first()
+        self.registro.first()
         #self.usuarioAtendido.push(self.registro.dequeue())
 
     def toFile(self):
@@ -23,6 +23,13 @@ class TurnoUsuario :
             #falta hacer uso de stack para volver a crear la cola
             with open("usuariospendientes.txt", "a") as f:
                 f.write(f"{Esc_user}")
+        #while self.usuariosAtendidos.isEmpty() != True: 
+            #tp_user = self.usuarioAtendido.top() 
+            #pp_user = self.usuarioAtendido.pop()
+            # asist_stack = stack()
+            # asist_stack.push(tp_user)   
+            #with open("usuarioatendidos.txt", "a") as r:
+            #    r.write(f"{tp_user}")   
 
 
 #prueba
@@ -38,4 +45,7 @@ Turno.Resgistrar(user2)
 Turno.Resgistrar(user3)
 Turno.Resgistrar(user4)
 Turno.Resgistrar(user5)
+Turno.toFile()
+user6 = Usuario("Juanita-bella", "1234567")
+Turno.Resgistrar(user6)
 Turno.toFile()
