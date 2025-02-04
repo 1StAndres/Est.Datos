@@ -1,6 +1,0 @@
-jose-rojas 123451 None None None None None
-juan-perez 123456 None None None None None
-maria-rojas 123457 None None None None None
-diana-pinal 123458 None None None None None
-pedro-jesus 123459 None None None None None
-Juanita-bella 1234567 None None None None None
