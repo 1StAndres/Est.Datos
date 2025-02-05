@@ -14,4 +14,6 @@ prueba_heap = HEAP(20)
 
 print("Vamos a construir un heap de la lista de numeros aleatorios")
 print("Antes del BUILD-MAX-HEAP:", lista_prueba)
-print("Despues del BUILD-MAX-HEAP:", prueba_heap.buildMaxHeap(lista_prueba))
+max_heap = prueba_heap.buildMaxHeap(lista_prueba)
+print("Despues del BUILD-MAX-HEAP:", max_heap)
+print("HEAP-SORT:", prueba_heap.heap_sort())
