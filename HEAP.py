@@ -19,10 +19,10 @@ class HEAP:
         right = self.right(i)
         largest = i
 
-        if left <= self.size and self.A[left] > self.A[i]:
+        if left < self.size and self.A[left] is not None and self.A[left] > self.A[largest]:
             largest = left
         
-        if right <= self.size and self.A[right] > self.A[largest]:
+        if right < self.size and self.A[right] is not None and self.A[right] > self.A[largest]:
             largest = right
 
         if largest != i:
@@ -30,12 +30,14 @@ class HEAP:
             self.A[i] = self.A[largest]
             self.A[largest] = temp
             self.maxHeapyfy(largest)
+        #return self.A    
 
     def buildMaxHeap(self, B):
         self.A = B[:] + [None] * (self.capacity - len(B))
         self.size = len(B)
         for i in range(self.size // 2 - 1, -1, -1):
             self.maxHeapyfy(i)
+        return self.A    
 
     def heap_sort(self):
         self.buildMaxHeap(self.A)
