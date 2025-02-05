@@ -10,7 +10,7 @@ print("Lista de numeros aleatorios: ", lista_prueba)
 print("Tamaño de la lista:", len(lista_prueba))
 
 
-prueba_heap = HEAP(20)
+prueba_heap = HEAP(len(lista_prueba))
 
 print("Vamos a construir un heap de la lista de numeros aleatorios")
 print("Antes del BUILD-MAX-HEAP:", lista_prueba)
