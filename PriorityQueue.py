@@ -7,7 +7,7 @@ class PriorityQueue:
     
     def maxHeapInsert(self, k):
         self.heap.setSize(self.heap.getSize() + 1)
-        i = self.heap.getSize()
+        i = self.heap.getSize() - 1 #agregue -1
         A = self.heap.getA()
         A[i] = k
         while i>0 and A[self.heap.parent(i)] < A[i]:
