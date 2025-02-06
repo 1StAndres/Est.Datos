@@ -17,3 +17,5 @@ print("Antes del BUILD-MAX-HEAP:", lista_prueba)
 max_heap = prueba_heap.buildMaxHeap(lista_prueba)
 print("Despues del BUILD-MAX-HEAP:", max_heap)
 print("HEAP-SORT:", prueba_heap.heap_sort())
+
+input("Ahora probaremos la segunda parte: ")
