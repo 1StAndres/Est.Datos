@@ -46,3 +46,12 @@ class HEAP:
             self.size -= 1
             self.maxHeapyfy(0)
         return self.A
+
+    def getSize(self):
+        return self.size
+    
+    def setSize(self, size):
+        self.size = size
+    
+    def getA(self):
+        return self.A
