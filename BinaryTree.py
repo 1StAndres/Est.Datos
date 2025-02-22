@@ -1,105 +1,102 @@
-class Node:
-    def __init__(self, value=None):
-        self.value = value
-        self.left = None
-        self.right = None
-
+from NodeT import Node
+from Queue import Queue
 class BinaryTree:
     def __init__(self):
         self.root = None
         self.size = 0
 
+    def getSize(self):
+        return self.size
+    
     def isEmpty(self):
         return self.size == 0
+    
+    def is_root(self, node):
+        return node == self.root
 
-    def root(self):
+    def is_internal(self, node):
+        return self.has_left(node) or self.has_right(node)
+
+    def has_left(self, node):
+        return node.getLeft() is not None
+
+    def has_right(self, node):
+        return node.getRight() is not None
+    
+    def getRoot(self):
         return self.root
-
-    def left(self, v):
-        return v.left
-
-    def right(self, v):
-        return v.right
-
-    def hasLeft(self, v):
-        return v.left is not None
-
-    def hasRight(self, v):
-        return v.right is not None
-
-    def isRoot(self, v):
-        return v == self.root
-
-    def isInternal(self, v):
-        return self.hasLeft(v) or self.hasRight(v)
-
-    def addRoot(self, e):
-        if self.root is not None:
-            raise ValueError("Ya existe una raiz")
-        self.root = Node(e)
-        self.size = 1
-        return self.root
-
-    def insertLeft(self, v, e):
-        if self.hasLeft(v):
-            raise ValueError("Ya existe hijo izquierdo")
-        v.left = Node(e)
-        self.size += 1
-        return v.left
-
-    def insertRight(self, v, e):
-        if self.hasRight(v):
-            raise ValueError("Ya existe hijo derecho")
-        v.right = Node(e)
-        self.size += 1
-        return v.right
-
-    def remove(self, v):
-        if self.hasLeft(v) and self.hasRight(v):
-            raise ValueError("El nodo tiene dos hijos")
-        child = v.left if self.hasLeft(v) else v.right
-        if self.isRoot(v):
-            self.root = child
-        else:
-            # Para eliminar un nodo, necesitamos encontrar su padre.
-            # Sin un puntero al padre, esto requiere un recorrido del árbol.
-            parent = self._findParent(self.root, v)
-            if parent.left == v:
-                parent.left = child
-            else:
-                parent.right = child
-        self.size -= 1
-        return v.value
-
-    def _findParent(self, current, v):
-        # Método auxiliar para encontrar el padre de un nodo.
-        if current is None:
-            return None
-        if current.left == v or current.right == v:
-            return current
-        parent = self._findParent(current.left, v)
-        if parent is not None:
-            return parent
-        return self._findParent(current.right, v)
-
-    def depth(self, v):
-        # Sin un puntero al padre, la profundidad debe calcularse recorriendo el árbol.
-        return self._depth(self.root, v, 0)
-
-    def _depth(self, current, v, current_depth):
-        if current is None:
-            return -1
-        if current == v:
-            return current_depth
-        left_depth = self._depth(current.left, v, current_depth + 1)
-        if left_depth != -1:
-            return left_depth
-        return self._depth(current.right, v, current_depth + 1)
-
-    def height(self, v):
-        if not self.isInternal(v):
+    
+    def getLeft(self, node):
+        return node.getLeft()
+    
+    def getRight(self, node):
+        return node.getRight()
+    
+    def depth(self, node):
+        if self.is_root(node):
             return 0
+        return 1 + self.depth(self.get_parent(node))
+
+    def height(self, node):
+        if not self.is_internal(node):
+            return 0
+        return 1 + max(self.height(self.left(node)), self.height(self.right(node)))
+    
+    def get_parent(self, node):
+        if self.is_root(node):
+            return None
+        
+        q = Queue()
+        q.put(self.root)
+        
+        while not q.empty():
+            temp = q.get()
+            if temp.getLeft() == node or temp.getRight() == node:
+                return temp
+            if self.has_left(temp):
+                q.put(temp.getLeft())
+            if self.has_right(temp):
+                q.put(temp.getRight())
+        
+        return None
+    
+    def add_root(self, value):
+        if self.root is not None:
+            raise ValueError("Raiz ya existe")
+        self.root = Node(value)
+        self.size = 1
+
+    def insert_left(self, node, value):
+        if node.getLeft() is not None:
+            raise ValueError("Hijo izquierdo ya existes")
+        node.setLeft(Node(value))
+        self.size += 1
+
+    def insert_right(self, node, value):
+        if node.getRight() is not None:
+            raise ValueError("Hijo derecho ya existe")
+        node.setRight(Node(value))
+        self.size += 1
+
+    def remove(self, node):
+        parent = self.get_parent(node)
+        
+        if self.has_left(node) or self.has_right(node):
+            child = node.getLeft() if self.has_left(node) else node.getRight()
+            if parent:
+                if parent.getLeft() == node:
+                    parent.setLeft(child)
+                else:
+                    parent.setRight(child)
+            else:
+                self.root = child
         else:
-            left_height = self.height(v.left) if self.hasLeft(v) else 0
-            right_height = self.height(v.right) if self.hasRight(v) else 0
-            return 1 + max(left_height, right_height)
+            if parent:
+                if parent.getLeft() == node:
+                    parent.setLeft(None)
+                else:
+                    parent.setRight(None)
+            else:
+                self.root = None
+        
+        self.size -= 1
