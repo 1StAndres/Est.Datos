@@ -1,90 +1,107 @@
-from BinaryTree import BinaryTree 
-from BinaryTree import Node
+from BinaryTree import BinaryTree
+from NodeT import Node
 from BSTEntry import BSTEntry
 class BinarySearchTree(BinaryTree):
-    def __init__(self):
-        super().__init__()
-
-    def insert(self, key, value):
-        entry = BSTEntry(key, value)
+    
+    def insert(self, key, data):
+        new_entry = BSTEntry(data, key)
         if self.root is None:
-            self.root = Node(entry)
-        else:
-            self._insert(self.root, entry)
-
-    def _insert(self, node, entry):
-        if entry.key < node.entry.key:
-            if node.left is None:
-                self.insertLeft(node, entry)
+            self.root = Node(new_entry)
+            self.size = 1
+            return
+        
+        current = self.root
+        while True:
+            if key < current.getData().getKey():
+                if current.getLeft() is None:
+                    current.setLeft(Node(new_entry))
+                    break
+                current = current.getLeft()
             else:
-                self._insert(node.left, entry)
-        else:
-            if node.right is None:
-                self.insertRight(node, entry)
-            else:
-                self._insert(node.right, entry)
+                if current.getRight() is None:
+                    current.setRight(Node(new_entry))
+                    break
+                current = current.getRight()
+        self.size += 1
+    
+    def min(self, node):
+        if self.has_left(node):
+            return self.min(self.left(node))
+        return node.getData()
 
+    def max(self, node):
+        if self.has_right(node):
+            return self.max(self.right(node))
+        return node.getData()
+    
     def find(self, key):
-        return self._find(self.root, key)
+        return self.search_tree(key, self.root)
 
-    def _find(self, node, key):
-        if node is None or node.entry.key == key:
-            return node
-        elif key < node.entry.key:
-            return self._find(node.left, key)
-        else:
-            return self._find(node.right, key)
-
-    def remove(self, key):
-        self.root = self._remove(self.root, key)
-
-    def _remove(self, node, key):
+    def search_tree(self, key, node):
         if node is None:
             return None
-        if key < node.entry.key:
-            node.left = self._remove(node.left, key)
-        elif key > node.entry.key:
-            node.right = self._remove(node.right, key)
+        
+        entry = node.getData()
+        if key == entry.getKey():
+            return node
+        elif key < entry.getKey():
+            return self.search_tree(key, node.getLeft())
         else:
-            if node.left is None:
-                return node.right
-            elif node.right is None:
-                return node.left
-            else:
-                successor = self._findMin(node.right)
-                node.entry = successor.entry
-                node.right = self._remove(node.right, successor.entry.key)
-        return node
-
-    def _findMin(self, node):
-        while node.left is not None:
-            node = node.left
-        return node
-
-    def findMax(self):
-        if self.root is None:
+            return self.search_tree(key, node.getRight())
+        
+    def remove(self, key):
+        node = self.find(key)
+        if node is None:
             return None
-        node = self.root
-        while node.right is not None:
-            node = node.right
-        return node.entry
 
-    def findMin(self):
-        if self.root is None:
-            return None
-        node = self.root
-        while node.left is not None:
-            node = node.left
-        return node.entry
+        temp = node.getData()
 
-    def display(self):
-        self._display(self.root, 0)
+        if self.has_left(node) and self.has_right(node):  # Caso 2
+            pred = self.predecessor(node)
+            node.setData(pred.getData())
+            super().remove(pred)
+        else:  # Caso 1
+            super().remove(node)
 
-    def _display(self, node, level):
+        return temp
+
+    def predecessor(self, node):
+        temp = node.getLeft()
+        return self.maxNode(temp)
+
+    def maxNode(self, node):
+        if self.has_right(node):
+            return self.maxNode(self.right(node))
+        return node
+    
+    def inorder_traversal(self):
+        result = []
+        self._inorder_helper(self.root, result)
+        return result
+
+    def _inorder_helper(self, node, result):
         if node is not None:
-            self._display(node.right, level + 1)
-            print(' ' * 4 * level + '->', node.entry)
-            self._display(node.left, level + 1)
+            
+            if self.has_left(node):
+                self._inorder_helper(node.getLeft(), result)
 
-    def inorderTraversal(self):
-        self.inorder(self.root, lambda entry: print(entry))
+            result.append(node.getData().getKey())
+            
+            if self.has_right(node):
+                self._inorder_helper(node.getRight(), result)
+
+    def mostrarArbol(self):
+        """Muestra el árbol de manera visual en formato horizontal."""
+        self.mostrarArbolAux(self.root, 0)
+
+    def mostrarArbolAux(self, node, level):
+        """Método auxiliar recursivo para mostrar el árbol."""
+        if node is not None:
+            # Recorre el subárbol derecho primero
+            self.mostrarArbolAux(node.getRight(), level + 1)
+            
+            # Imprime el nodo actual con sangría proporcional al nivel
+            print(' ' * 4 * level + '->', node.getData().getKey())
+            
+            # Recorre el subárbol izquierdo
+            self.mostrarArbolAux(node.getLeft(), level + 1)
