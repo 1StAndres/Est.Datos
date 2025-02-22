@@ -1,7 +1,16 @@
 class BSTEntry:
-    def __init__(self, key, value):
+    def __init__(self, data, key):
+        self.data = data
         self.key = key
-        self.value = value
 
-    def __str__(self):
-        return f"({self.key}: {self.value})"
+    def getData(self):
+        return self.data
+
+    def getKey(self):
+        return self.key
+
+    def setData(self, data):
+        self.data = data
+
+    def setKey(self, key):
+        self.key = key
