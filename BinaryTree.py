@@ -40,23 +40,23 @@ class BinaryTree:
     def height(self, node):
         if not self.is_internal(node):
             return 0
-        return 1 + max(self.height(self.left(node)), self.height(self.right(node)))
+        return 1 + max(self.height(self.getLeft(node)), self.height(self.getRight(node)))
     
     def get_parent(self, node):
         if self.is_root(node):
             return None
         
         q = Queue()
-        q.put(self.root)
+        q.enqueue(self.root)
         
-        while not q.empty():
-            temp = q.get()
+        while not q.isEmpty():
+            temp = q.dequeue()
             if temp.getLeft() == node or temp.getRight() == node:
                 return temp
             if self.has_left(temp):
-                q.put(temp.getLeft())
+                q.enqueue(temp.getLeft())
             if self.has_right(temp):
-                q.put(temp.getRight())
+                q.enqueue(temp.getRight())
         
         return None
     
@@ -68,7 +68,7 @@ class BinaryTree:
 
     def insert_left(self, node, value):
         if node.getLeft() is not None:
-            raise ValueError("Hijo izquierdo ya existes")
+            raise ValueError("Hijo izquierdo ya existe")
         node.setLeft(Node(value))
         self.size += 1
 

@@ -12,7 +12,7 @@ users = [
     ("Ana", "1010000"),
     ("Diana", "10111105"),
     ("Mateo", "10110005")
-]
+ ]
 
 for name, id_number in users:
     key = calculate_key(id_number)
@@ -21,27 +21,25 @@ for name, id_number in users:
 print("\nÁrbol Binario de Búsqueda:")
 bst.mostrarArbol()
 
-
-#from BinarySearchTree import BinarySearchTree
-
+input("ejemplos de uso punto 1:")
 # Crear árbol BST
-# bst = BinarySearchTree()
+bst = BinarySearchTree()
 
 # Insertar elementos
-# bst.insert(50, "A")
-# bst.insert(30, "B")
-# bst.insert(70, "C")
-# bst.insert(20, "D")
-# bst.insert(40, "E")
-# bst.insert(60, "F")
-# bst.insert(80, "G")
+bst.insert(50, "A")
+bst.insert(30, "B")
+bst.insert(70, "C")
+bst.insert(20, "D")
+bst.insert(40, "E")
+bst.insert(60, "F")
+
 
 # Mostrar árbol
-# print("Árbol inicial:")
-# bst.mostrarArbol()
+print("Árbol inicial:")
+bst.mostrarArbol()
 
 # Buscar elementos
-print("\nBuscar 40:", bst.find(4))
+print("\nBuscar 40:", bst.find(40))
 print("Buscar 100 (no existe):", bst.find(100))
 
 # Mínimo y máximo
@@ -52,17 +50,18 @@ print("Valor máximo:", bst.max(bst.getRoot()))
 print("\nRecorrido inorder:", bst.inorder_traversal())
 
 # Eliminar nodo con 2 hijos
-# print("\nEliminar nodo 50 (con 2 hijos)")
-# bst.remove(9)
-# bst.mostrarArbol()
+print("\nEliminar nodo 50")
+bst.remove(50)
+bst.mostrarArbol()
 
 # # Eliminar nodo hoja
-# print("\nEliminar nodo 20 (hoja)")
-# bst.remove(20)
-# bst.mostrarArbol()
+print("\nEliminar nodo 20")
+bst.remove(20)
+bst.mostrarArbol()
 
 # # Eliminar nodo con un solo hijo
-# print("\nEliminar nodo 30 (con un hijo)")
-# bst.remove(30)
-# bst.mostrarArbol()
+print("\nEliminar nodo 30")
+bst.remove(30)
+bst.insert(10, "G")
+bst.mostrarArbol()
 
