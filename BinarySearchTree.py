@@ -26,12 +26,12 @@ class BinarySearchTree(BinaryTree):
     
     def min(self, node):
         if self.has_left(node):
-            return self.min(self.left(node))
+            return self.min(self.getLeft(node))#cambio de prueba
         return node.getData()
 
     def max(self, node):
         if self.has_right(node):
-            return self.max(self.right(node))
+            return self.max(self.getRight(node))#cambio de prueba
         return node.getData()
     
     def find(self, key):

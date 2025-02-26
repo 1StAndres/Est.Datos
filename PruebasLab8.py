@@ -20,3 +20,49 @@ for name, id_number in users:
 
 print("\nÁrbol Binario de Búsqueda:")
 bst.mostrarArbol()
+
+
+#from BinarySearchTree import BinarySearchTree
+
+# Crear árbol BST
+# bst = BinarySearchTree()
+
+# Insertar elementos
+# bst.insert(50, "A")
+# bst.insert(30, "B")
+# bst.insert(70, "C")
+# bst.insert(20, "D")
+# bst.insert(40, "E")
+# bst.insert(60, "F")
+# bst.insert(80, "G")
+
+# Mostrar árbol
+# print("Árbol inicial:")
+# bst.mostrarArbol()
+
+# Buscar elementos
+print("\nBuscar 40:", bst.find(4))
+print("Buscar 100 (no existe):", bst.find(100))
+
+# Mínimo y máximo
+print("\nValor mínimo:", bst.min(bst.getRoot()))
+print("Valor máximo:", bst.max(bst.getRoot()))
+
+# Recorrido inorder
+print("\nRecorrido inorder:", bst.inorder_traversal())
+
+# Eliminar nodo con 2 hijos
+# print("\nEliminar nodo 50 (con 2 hijos)")
+# bst.remove(9)
+# bst.mostrarArbol()
+
+# # Eliminar nodo hoja
+# print("\nEliminar nodo 20 (hoja)")
+# bst.remove(20)
+# bst.mostrarArbol()
+
+# # Eliminar nodo con un solo hijo
+# print("\nEliminar nodo 30 (con un hijo)")
+# bst.remove(30)
+# bst.mostrarArbol()
+
