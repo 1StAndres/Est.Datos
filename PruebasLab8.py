@@ -21,6 +21,10 @@ for name, id_number in users:
 print("\nÁrbol Binario de Búsqueda:")
 bst.mostrarArbol()
 
+bst.remove(9)
+bst.mostrarArbol()
+print("\nValor mínimo:", bst.min(bst.getRoot()))
+print("Valor máximo:", bst.max(bst.getRoot()))
 input("ejemplos de uso punto 1:")
 # Crear árbol BST
 bst = BinarySearchTree()
@@ -39,7 +43,7 @@ print("Árbol inicial:")
 bst.mostrarArbol()
 
 # Buscar elementos
-print("\nBuscar 40:", bst.find(40))
+print("\nBuscar 40:", bst.find(40).getData())
 print("Buscar 100 (no existe):", bst.find(100))
 
 # Mínimo y máximo

@@ -25,12 +25,12 @@ class BinarySearchTree(BinaryTree):
         self.size += 1
     
     def min(self, node):
-        if self.has_left(node):
+        while self.has_left(node):
             node = self.getLeft(node)#return self.min(self.getLeft(node))#cambio de prueba
         return node.getData().getKey()
 
     def max(self, node):
-        if self.has_right(node):
+        while self.has_right(node):
             node = self.getRight(node)#return self.max(self.getRight(node))#cambio de prueba
         return node.getData().getKey()
     
