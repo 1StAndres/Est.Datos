@@ -29,3 +29,13 @@ if estan_conectadas(x, y, grafo):
     print(f"{x} y {y} están conectadas directamente por una carretera.")
 else:
     print(f"{x} y {y} NO están conectadas directamente.")
+
+#funcion camino mas corto segun la distancia
+def CaminoMasCortoDistancia(ciuA, ciuB, g):
+    return nt.dijkstra_path(g, ciuA, ciuB, weight="distancia")
+
+print("Vamos a buscar el camino mas corto segun la distancia")
+f = input("Ingrese el nombre de la primera ciudad: ")
+l = input("Ingrese el nombre de la segunda ciudad: ")
+rutaD = CaminoMasCortoDistancia(f, l ,grafo)
+print(f"La ruta mas corta segun la distancia desde la ciudad {a} y la ciudad {b} es: {rutaD}")
