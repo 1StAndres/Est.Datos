@@ -14,7 +14,7 @@ for _, row in dataset.iterrows():
 
 a = input("Ingrese el nombre de la primera ciudad: ")
 b = input("Ingrese el nombre de la segunda ciudad: ")
-rutaT = CaminoMasCortoTiempo("Medellin","Manizales" ,grafo) #¿no debería ser entre a y b?
+rutaT = CaminoMasCortoTiempo(a, b ,grafo) #¿no debería ser entre a y b?
 print(f"La ruta mas corta segun el tiempo desde la ciudad {a} y la ciudad {b} es: {rutaT}")
 
 
