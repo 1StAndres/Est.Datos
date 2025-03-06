@@ -1,8 +1,17 @@
 import networkx as nt
 import pandas as pd
 
+#funcion camino mas corto segun el tiempo
 def CaminoMasCortoTiempo(ciuA, ciuB, g):
     return  nt.dijkstra_path(g, ciuA, ciuB, weight = "tiempo")
+
+#funcion camino mas corto segun la distancia
+def CaminoMasCortoDistancia(ciuA, ciuB, g):
+    return nt.dijkstra_path(g, ciuA, ciuB, weight="distancia")
+
+#Función ¿están conectadas por una sola carretera?
+def estan_conectadas(ciuA, ciuB, g):
+    return g.has_edge(ciuA, ciuB)
 
 
 url = "https://raw.githubusercontent.com/1StAndres/Est.Datos/refs/heads/main/Datos%20vias.csv"
@@ -18,9 +27,8 @@ rutaT = CaminoMasCortoTiempo(a, b ,grafo) #¿no debería ser entre a y b?
 print(f"La ruta mas corta segun el tiempo desde la ciudad {a} y la ciudad {b} es: {rutaT}")
 
 
-#Función ¿están conectadas por una sola carretera?
-def estan_conectadas(ciuA, ciuB, g):
-    return g.has_edge(ciuA, ciuB)
+
+#Función ¿están conectadas por una sola carretera?    
 print("¿Están conectadas por una sola carretera?")
 x = input("Ingrese la primera ciudad: ")
 y = input("Ingrese la segunda ciudad: ")
@@ -30,10 +38,8 @@ if estan_conectadas(x, y, grafo):
 else:
     print(f"{x} y {y} NO están conectadas directamente.")
 
-#funcion camino mas corto segun la distancia
-def CaminoMasCortoDistancia(ciuA, ciuB, g):
-    return nt.dijkstra_path(g, ciuA, ciuB, weight="distancia")
 
+#funcion camino mas corto segun la distancia
 print("Vamos a buscar el camino mas corto segun la distancia")
 f = input("Ingrese el nombre de la primera ciudad: ")
 l = input("Ingrese el nombre de la segunda ciudad: ")
